@@ -1,0 +1,38 @@
+{
+  "name": "indedent",
+  "version": "1.0.0",
+  "description": "Tag function for writing template literals without breaking source code indentation",
+  "author": "Enrique Jorge",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/esm/index.js",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "types": "dist/types/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "compile": "rm -rf dist && npm run compile:esm && npm run compile:cjs",
+    "compile:esm": "npx tsc --project tsconfig.esm.json",
+    "compile:cjs": "npx tsc --project tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
+    "test": "node --test test"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enriquejr99/indedent.git"
+  },
+  "keywords": [
+    "dedent",
+    "string",
+    "template literal",
+    "typescript"
+  ],
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
+}
